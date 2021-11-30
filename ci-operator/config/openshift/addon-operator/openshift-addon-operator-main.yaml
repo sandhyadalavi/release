@@ -34,13 +34,7 @@ images:
   to: api-mock
 - dockerfile_path: config/docker/Dockerfile.src.ci
   from: src
-  to: addon-operator-tooling
-operator:
-  bundles:
-  - dockerfile_path: addon-operator-bundle.Dockerfile
-  substitutions:
-  - pullspec: quay.io/openshift/addon-operator:latest
-    with: addon-operator-manager            
+  to: addon-operator-tooling        
 promotion:
   name: addon-operator-manager
   namespace: addon-operator
@@ -61,8 +55,6 @@ resources:
     requests:
       cpu: 100m
       memory: 200Mi
-test_binary_build_commands: |
-  make openshift-ci-test-build
 tests:
 - as: unit
   commands: make test-unit
