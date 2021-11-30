@@ -20,7 +20,7 @@ build_root:
   image_stream_tag:
     name: release
     namespace: openshift
-    tag: golang-1.16
+    tag: golang-1.17
 images:
 - from: base
   inputs:
@@ -167,6 +167,7 @@ tests:
     product: ocp
     timeout: 1h30m0s
     version: "4.8"
+  optional: true
   steps:
     test:
     - as: install-hypershift
